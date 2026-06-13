@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist — VOLERA</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/cart.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">VOLE<span>RA</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="products.html" class="nav-icon-btn">🔍</a>
+        <a href="wishlist.html" class="nav-icon-btn">
+          ❤️<span class="wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="nav-icon-btn">
+          🛒<span class="cart-count">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>My Wishlist</h1>
+    <p id="wishlist-header-count">0 saved items</p>
+  </div>
+
+  <!-- WISHLIST PAGE -->
+  <div class="wishlist-page">
+    <div class="wishlist-container">
+
+      <!-- Wishlist Header -->
+      <div class="wishlist-header">
+        <h2>Saved Items</h2>
+        <button
+          class="btn btn-ghost"
+          id="clear-wishlist-btn"
+          style="font-size:0.75rem;"
+        >
+          Clear All
+        </button>
+      </div>
+
+      <!-- Wishlist Grid -->
+      <div class="wishlist-grid" id="wishlist-grid">
+        <!-- JS se fill hoga -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">VOLERA</div>
+          <p>Curated fashion for the modern individual.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?category=women's clothing">Women</a></li>
+            <li><a href="products.html?category=men's clothing">Men</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 VOLERA. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/wishlist.js"></script>
+
+</body>
+</html>

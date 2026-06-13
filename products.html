@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — VOLERA</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- ============================================
+       📌 NAVBAR
+       ============================================ -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">VOLE<span>RA</span></a>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <a href="products.html" class="nav-icon-btn" title="Search">🔍</a>
+        <a href="wishlist.html" class="nav-icon-btn" title="Wishlist">
+          ❤️
+          <span class="wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="nav-icon-btn" title="Cart">
+          🛒
+          <span class="cart-count">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       📄 PAGE HEADER
+       ============================================ -->
+  <div class="page-header">
+    <h1>All Products</h1>
+    <p>Discover our curated collection</p>
+  </div>
+
+  <!-- ============================================
+       🔍 SEARCH & FILTER BAR
+       ============================================ -->
+  <section class="section-sm" style="border-bottom: 1px solid var(--gray-200);">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px;">
+
+        <!-- Search -->
+        <div class="search-bar">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search products..."
+          />
+          <span class="search-icon">🔍</span>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs" id="filter-tabs">
+          <button class="filter-tab active" data-category="all">All</button>
+          <!-- JS se categories add hongi -->
+        </div>
+
+      </div>
+
+      <!-- Results Count -->
+      <p id="results-count" style="margin-top:16px; font-size:0.8rem; color:var(--gray-400); letter-spacing:0.5px;"></p>
+
+    </div>
+  </section>
+
+  <!-- ============================================
+       🏷️ PRODUCTS GRID
+       ============================================ -->
+  <section class="section">
+    <div class="container">
+      <div class="products-grid" id="products-grid">
+        <!-- JS se fill hoga -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       🦶 FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">VOLERA</div>
+          <p>Curated fashion for the modern individual. Minimal design, maximum impact.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?category=women's clothing">Women</a></li>
+            <li><a href="products.html?category=men's clothing">Men</a></li>
+            <li><a href="products.html?category=jewelery">Jewellery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 VOLERA. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       📜 SCRIPTS
+       ============================================ -->
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

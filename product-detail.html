@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product — VOLERA</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* Product Detail Specific */
+    .product-detail-page {
+      padding: 48px 24px 80px;
+    }
+
+    .product-detail-container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .product-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Image Section */
+    .product-detail-image-wrapper {
+      position: sticky;
+      top: calc(var(--navbar-height) + 24px);
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px;
+    }
+
+    .product-detail-image-wrapper img {
+      max-width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+
+    .product-detail-image-wrapper:hover img {
+      transform: scale(1.04);
+    }
+
+    /* Info Section */
+    .product-detail-info {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .product-detail-category {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray-400);
+    }
+
+    .product-detail-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--black);
+    }
+
+    .product-detail-rating {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .product-detail-rating .stars {
+      font-size: 1rem;
+    }
+
+    .product-detail-rating span {
+      font-size: 0.82rem;
+      color: var(--gray-400);
+    }
+
+    .product-detail-price {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .product-detail-divider {
+      height: 1px;
+      background: var(--gray-200);
+    }
+
+    .product-detail-description {
+      font-size: 0.88rem;
+      color: var(--gray-600);
+      line-height: 1.8;
+    }
+
+    /* Size Selector */
+    .size-section h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--black);
+    }
+
+    .size-grid {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .size-btn {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 500;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      color: var(--black);
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: var(--font-body);
+    }
+
+    .size-btn:hover {
+      border-color: var(--black);
+    }
+
+    .size-btn.active {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    /* Quantity */
+    .quantity-section h4 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: var(--black);
+    }
+
+    /* CTA Buttons */
+    .detail-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .detail-actions .btn-primary {
+      flex: 1;
+      padding: 16px;
+      font-size: 0.82rem;
+    }
+
+    .detail-actions .wishlist-toggle-btn {
+      width: 54px;
+      height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      border: 1px solid var(--gray-200);
+      background: var(--white);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .detail-actions .wishlist-toggle-btn:hover,
+    .detail-actions .wishlist-toggle-btn.active {
+      background: var(--black);
+      border-color: var(--black);
+    }
+
+    /* Features */
+    .product-features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 20px;
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+    }
+
+    .feature-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.82rem;
+      color: var(--gray-600);
+    }
+
+    .feature-row span:first-child {
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="navbar-logo">VOLE<span>RA</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Shop</a></li>
+        <li><a href="wishlist.html">Wishlist</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+      <div class="nav-icons">
+        <a href="products.html" class="nav-icon-btn">🔍</a>
+        <a href="wishlist.html" class="nav-icon-btn">
+          ❤️<span class="wishlist-count">0</span>
+        </a>
+        <a href="cart.html" class="nav-icon-btn">
+          🛒<span class="cart-count">0</span>
+        </a>
+        <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PRODUCT DETAIL PAGE -->
+  <div class="product-detail-page" style="margin-top: var(--navbar-height);">
+    <div class="product-detail-container">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb" style="margin-bottom: 32px;">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <a href="products.html">Shop</a>
+        <span>›</span>
+        <span id="breadcrumb-title">Product</span>
+      </div>
+
+      <!-- Loading State -->
+      <div id="detail-loading">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px;">
+          <div class="skeleton" style="aspect-ratio:1/1; width:100%;"></div>
+          <div style="display:flex; flex-direction:column; gap:20px;">
+            <div class="skeleton" style="height:16px; width:30%;"></div>
+            <div class="skeleton" style="height:32px; width:80%;"></div>
+            <div class="skeleton" style="height:16px; width:40%;"></div>
+            <div class="skeleton" style="height:40px; width:25%;"></div>
+            <div class="skeleton" style="height:1px; width:100%;"></div>
+            <div class="skeleton" style="height:80px; width:100%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Detail Content -->
+      <div id="detail-content" style="display:none;">
+        <div class="product-detail-grid">
+
+          <!-- LEFT: Image -->
+          <div class="product-detail-image-wrapper">
+            <img id="detail-image" src="" alt="" />
+          </div>
+
+          <!-- RIGHT: Info -->
+          <div class="product-detail-info">
+
+            <p class="product-detail-category" id="detail-category"></p>
+            <h1 class="product-detail-title" id="detail-title"></h1>
+
+            <!-- Rating -->
+            <div class="product-detail-rating">
+              <div class="stars" id="detail-stars"></div>
+              <span id="detail-rating-count"></span>
+            </div>
+
+            <div class="product-detail-divider"></div>
+
+            <!-- Price -->
+            <div class="product-detail-price" id="detail-price"></div>
+
+            <!-- Description -->
+            <p class="product-detail-description" id="detail-description"></p>
+
+            <div class="product-detail-divider"></div>
+
+            <!-- Size Selector -->
+            <div class="size-section">
+              <h4>Select Size</h4>
+              <div class="size-grid">
+                <button class="size-btn active" data-size="XS">XS</button>
+                <button class="size-btn" data-size="S">S</button>
+                <button class="size-btn" data-size="M">M</button>
+                <button class="size-btn" data-size="L">L</button>
+                <button class="size-btn" data-size="XL">XL</button>
+              </div>
+            </div>
+
+            <!-- Quantity -->
+            <div class="quantity-section">
+              <h4>Quantity</h4>
+              <div class="quantity-control">
+                <button class="qty-btn" id="qty-minus">−</button>
+                <span class="qty-value" id="qty-value">1</span>
+                <button class="qty-btn" id="qty-plus">+</button>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="detail-actions">
+              <button class="btn btn-primary" id="add-to-cart-btn">
+                Add to Cart
+              </button>
+              <button class="wishlist-toggle-btn" id="wishlist-toggle-btn" title="Add to Wishlist">
+                🤍
+              </button>
+            </div>
+
+            <!-- Features -->
+            <div class="product-features">
+              <div class="feature-row">
+                <span>🚚</span>
+                <span>Free shipping on orders above ₹999</span>
+              </div>
+              <div class="feature-row">
+                <span>↩️</span>
+                <span>Easy 30-day returns</span>
+              </div>
+              <div class="feature-row">
+                <span>🔒</span>
+                <span>Secure & encrypted checkout</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">VOLERA</div>
+          <p>Curated fashion for the modern individual.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="products.html">All Products</a></li>
+            <li><a href="products.html?category=women's clothing">Women</a></li>
+            <li><a href="products.html?category=men's clothing">Men</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 VOLERA. All rights reserved.</p>
+        <div class="footer-social">
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/storage.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/product-detail.js"></script>
+
+</body>
+</html>
